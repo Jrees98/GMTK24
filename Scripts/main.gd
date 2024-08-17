@@ -61,3 +61,7 @@ func _on_upgrade_lemonade_production_pressed():
 func _on_upgrade_price_pressed():
 	Global.lemonade_cost += 1
 	print(Global.lemonade_cost)
+
+
+func _on_your_stand_lemon_entered():
+	pass # Replace with function body.
