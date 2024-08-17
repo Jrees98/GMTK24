@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b48k7ome4d88h"]
+
+[ext_resource type="PackedScene" uid="uid://cl37ty27tb2pv" path="res://Scenes/lemonade_stand.tscn" id="1_433fu"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
+[ext_resource type="PackedScene" uid="uid://c5jraoq5jrtmo" path="res://Scenes/spawner.tscn" id="4_ix7xf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxhnx"]
+size = Vector2(20, 159)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yitt0")
+
+[node name="NeighborStand" parent="." instance=ExtResource("1_433fu")]
+modulate = Color(1, 1, 0, 1)
+self_modulate = Color(0.145098, 0.0941176, 0.894118, 1)
+position = Vector2(-184, -205)
+stop_chance = 80
+
+[node name="YourStand" parent="." instance=ExtResource("1_433fu")]
+position = Vector2(133, -203)
+stop_chance = 30
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+zoom = Vector2(2, 2)
+
+[node name="Spawner" parent="." instance=ExtResource("4_ix7xf")]
+position = Vector2(212, -150)
+
+[node name="ExitArea" type="Area2D" parent="."]
+position = Vector2(-130, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+position = Vector2(-488, -69)
+shape = SubResource("RectangleShape2D_sxhnx")
+
+[connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://dt1lpyyp3t26g"]
+
+[ext_resource type="Texture2D" uid="uid://wyopdvj041js" path="res://Assets/Base Character - Free/walk.png" id="1_ft5u5"]
+[ext_resource type="Script" path="res://Scripts/customer.gd" id="1_m5wn8"]
+[ext_resource type="Texture2D" uid="uid://roebrgu2ff1o" path="res://Assets/Base Character - Free/idle.png" id="2_elsmo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lc16t"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er7ns"]
+atlas = ExtResource("2_elsmo")
+region = Rect2(0, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx70l"]
+atlas = ExtResource("2_elsmo")
+region = Rect2(80, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_200ua"]
+atlas = ExtResource("2_elsmo")
+region = Rect2(160, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybtli"]
+atlas = ExtResource("2_elsmo")
+region = Rect2(240, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2swol"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wca4"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap0at"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq82l"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyn4q"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(320, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ctfh"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(400, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfudf"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(480, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4id8"]
+atlas = ExtResource("1_ft5u5")
+region = Rect2(560, 80, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_otldt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er7ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx70l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_200ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybtli")
+}],
+"loop": true,
+"name": &"idle_north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2swol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wca4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap0at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq82l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyn4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ctfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfudf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4id8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="Customer" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_mask = 0
+script = ExtResource("1_m5wn8")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lc16t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_otldt")
+animation = &"idle_north"
+autoplay = "walk"
+
+[node name="PurchasedLemonade" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="PurchasedLemonade" to="." method="_on_purchased_lemonade_timeout"]
