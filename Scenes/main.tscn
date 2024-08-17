@@ -1,37 +1,158 @@
-[gd_scene load_steps=5 format=3 uid="uid://b48k7ome4d88h"]
+[gd_scene load_steps=17 format=3 uid="uid://b48k7ome4d88h"]
 
 [ext_resource type="PackedScene" uid="uid://cl37ty27tb2pv" path="res://Scenes/lemonade_stand.tscn" id="1_433fu"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
+[ext_resource type="Texture2D" uid="uid://bdvnq5fl8fp6o" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="2_bsgrd"]
+[ext_resource type="FontFile" uid="uid://byp1sa2n5wlp0" path="res://Assets/monogram.ttf" id="3_g4lge"]
+[ext_resource type="PackedScene" uid="uid://cyfqphb3fgxvn" path="res://Scenes/lemon_farm.tscn" id="4_a0t54"]
 [ext_resource type="PackedScene" uid="uid://c5jraoq5jrtmo" path="res://Scenes/spawner.tscn" id="4_ix7xf"]
+[ext_resource type="PackedScene" uid="uid://cp2poy83r85ie" path="res://Scenes/exit_area.tscn" id="7_u6c5t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxhnx"]
-size = Vector2(20, 159)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6mtt"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkki7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_detef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pokru"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kkui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4alx1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryoal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ujmu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4mw8"]
+
+[node name="Main" type="Node2D" groups=["customers", "lemons"]]
 script = ExtResource("1_yitt0")
 
-[node name="NeighborStand" parent="." instance=ExtResource("1_433fu")]
-modulate = Color(1, 1, 0, 1)
-self_modulate = Color(0.145098, 0.0941176, 0.894118, 1)
-position = Vector2(-184, -205)
-stop_chance = 80
-
 [node name="YourStand" parent="." instance=ExtResource("1_433fu")]
-position = Vector2(133, -203)
-stop_chance = 30
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
-zoom = Vector2(2, 2)
+position = Vector2(486, 345)
+scale = Vector2(2, 2)
+stop_chance = 100
 
 [node name="Spawner" parent="." instance=ExtResource("4_ix7xf")]
-position = Vector2(212, -150)
+position = Vector2(615, 416)
 
-[node name="ExitArea" type="Area2D" parent="."]
-position = Vector2(-130, 7)
+[node name="Spawner2" parent="." instance=ExtResource("4_ix7xf")]
+position = Vector2(378, 419)
+move_right = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
-position = Vector2(-488, -69)
-shape = SubResource("RectangleShape2D_sxhnx")
+[node name="LemonFarm" parent="." instance=ExtResource("4_a0t54")]
+position = Vector2(926, 332)
 
-[connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]
+[node name="Dollars" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 67.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 32
+text = "Dollars"
+
+[node name="Lemons" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 45.0
+offset_right = 73.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 32
+text = "Lemons"
+
+[node name="Lemonade" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 77.0
+offset_right = 155.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 32
+text = "Cups of Lemonade"
+
+[node name="ExitArea" parent="." instance=ExtResource("7_u6c5t")]
+position = Vector2(-42, 413)
+
+[node name="ExitArea2" parent="." instance=ExtResource("7_u6c5t")]
+position = Vector2(1200, 448)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 358.0
+offset_top = 229.0
+offset_right = 612.0
+offset_bottom = 256.0
+rounded = true
+show_percentage = false
+
+[node name="lemonade_timer" type="Timer" parent="ProgressBar"]
+
+[node name="check_lemons" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="UpgradeMarketing" type="Button" parent="."]
+offset_left = 180.0
+offset_top = 532.0
+offset_right = 353.0
+offset_bottom = 637.0
+text = "Upgrade Marketing"
+
+[node name="UpgradeLemonadeProduction" type="Button" parent="."]
+offset_left = 396.0
+offset_top = 531.0
+offset_right = 564.0
+offset_bottom = 642.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a6mtt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tkki7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_detef")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pokru")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2kkui")
+
+[node name="Sprite2D" type="Sprite2D" parent="UpgradeLemonadeProduction"]
+position = Vector2(82.5, 56.5)
+scale = Vector2(1.69792, 1.13542)
+texture = ExtResource("2_bsgrd")
+
+[node name="Label" type="Label" parent="UpgradeLemonadeProduction/Sprite2D"]
+offset_left = -41.5215
+offset_top = -35.6697
+offset_right = 54.4785
+offset_bottom = 13.3303
+scale = Vector2(0.809711, 1.64751)
+theme_override_fonts/font = ExtResource("3_g4lge")
+text = "Upgrade 
+Production Speed
+"
+
+[node name="UpgradeBelt" type="Button" parent="."]
+offset_left = 609.0
+offset_top = 539.0
+offset_right = 759.0
+offset_bottom = 639.0
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4alx1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ryoal")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ujmu8")
+text = "Upgrade Belt"
+
+[node name="UpgradeFarm" type="Button" parent="."]
+offset_left = 804.0
+offset_top = 543.0
+offset_right = 929.0
+offset_bottom = 637.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4mw8")
+text = "Upgrade Farm"
+
+[node name="UpgradePrice" type="Button" parent="."]
+offset_left = 953.0
+offset_top = 545.0
+offset_right = 1076.0
+offset_bottom = 635.0
+text = "Upgrade
+Price"
+
+[connection signal="lemon_entered" from="YourStand" to="." method="_on_your_stand_lemon_entered"]
+[connection signal="timeout" from="ProgressBar/lemonade_timer" to="." method="_on_lemonade_timer_timeout"]
+[connection signal="timeout" from="check_lemons" to="." method="_on_check_lemons_timeout"]
+[connection signal="pressed" from="UpgradeMarketing" to="." method="_on_upgrade_marketing_pressed"]
+[connection signal="pressed" from="UpgradeLemonadeProduction" to="." method="_on_upgrade_lemonade_production_pressed"]
+[connection signal="pressed" from="UpgradeBelt" to="." method="_on_upgrade_belt_pressed"]
+[connection signal="pressed" from="UpgradeFarm" to="." method="_on_upgrade_farm_pressed"]
+[connection signal="pressed" from="UpgradePrice" to="." method="_on_upgrade_price_pressed"]

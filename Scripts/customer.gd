@@ -1,18 +1,19 @@
 extends CharacterBody2D
-
-@export var speed = 400
-
+var lemonade_cost = 1
+@export var speed := 0
+var direction = Vector2.ZERO
 var moving : bool
 func _ready():
-	moving = true
+	pass
 
 func _physics_process(delta):
 	if moving:
 		move_forward()
+	lemonade_cost = Global.lemonade_cost
 
 func move_forward():
 	$AnimatedSprite2D.play("walk")
-	velocity.x = -speed
+	velocity.x = direction.x * speed
 	move_and_slide()
 
 func purchase_lemonade():
@@ -20,9 +21,13 @@ func purchase_lemonade():
 	velocity = Vector2.ZERO
 	$AnimatedSprite2D.play("idle_north")
 	$PurchasedLemonade.start()
-	Global.dollars += 5
+	Global.dollars += lemonade_cost
+	Global.cups_of_lemonade -= 1
 	print(Global.dollars)
 
+func set_direction(dir: Vector2):
+	direction = dir
+	$AnimatedSprite2D.flip_h = direction.x > 0
 
 
 

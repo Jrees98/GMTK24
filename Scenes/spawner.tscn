@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5jraoq5jrtmo"]
 
-[ext_resource type="Script" path="res://Scenes/spawner.gd" id="1_hqu1j"]
+[ext_resource type="Script" path="res://Scripts/spawner.gd" id="1_po47d"]
 [ext_resource type="PackedScene" uid="uid://dt1lpyyp3t26g" path="res://Scenes/customer.tscn" id="2_uvomi"]
 
 [node name="Spawner" type="Marker2D"]
-script = ExtResource("1_hqu1j")
+script = ExtResource("1_po47d")
 customer_scene = ExtResource("2_uvomi")
 
 [node name="spawner_timer" type="Timer" parent="."]

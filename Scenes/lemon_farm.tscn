@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyfqphb3fgxvn"]
+
+[ext_resource type="Script" path="res://Scripts/lemon_farm.gd" id="1_6e1y3"]
+[ext_resource type="Texture2D" uid="uid://cdaeg3t1gxjqk" path="res://icon.svg" id="1_66c0v"]
+[ext_resource type="PackedScene" uid="uid://c7kscss2r270d" path="res://Scenes/lemon.tscn" id="2_r6bbj"]
+
+[node name="LemonFarm" type="Marker2D"]
+script = ExtResource("1_6e1y3")
+lemon_scene = ExtResource("2_r6bbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(143, 2)
+texture = ExtResource("1_66c0v")
+
+[node name="Spawn_rate" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Spawn_rate" to="." method="_on_spawn_rate_timeout"]
