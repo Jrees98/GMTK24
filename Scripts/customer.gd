@@ -4,7 +4,7 @@ var speed : int
 var direction = Vector2.ZERO
 var moving : bool
 func _ready():
-	pass
+	$TextBubble/Label.text = ""
 
 func _physics_process(delta):
 	if moving:
@@ -12,11 +12,14 @@ func _physics_process(delta):
 	lemonade_cost = Global.lemonade_cost
 
 func move_forward():
+	$TextBubble.visible = false
+	$TextBubble/Label.text = ""
 	$AnimatedSprite2D.play("walk")
 	velocity.x = direction.x * speed
 	move_and_slide()
 
 func purchase_lemonade():
+	#$TextBubble.visible = true
 	moving = false
 	velocity = Vector2.ZERO
 	$AnimatedSprite2D.play("idle_north")
@@ -24,6 +27,7 @@ func purchase_lemonade():
 	Global.dollars += lemonade_cost
 	Global.cups_of_lemonade -= 1
 	$AudioStreamPlayer2D.play()
+	$TextBubble/Label.text = "What a hot day!"
 	print(Global.dollars)
 
 func set_direction(dir: Vector2):

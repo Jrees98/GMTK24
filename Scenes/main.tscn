@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b48k7ome4d88h"]
+[gd_scene load_steps=17 format=3 uid="uid://b48k7ome4d88h"]
 
 [ext_resource type="PackedScene" uid="uid://cl37ty27tb2pv" path="res://Scenes/lemonade_stand.tscn" id="1_433fu"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://empr3fx3ecca" path="res://Scenes/make_lemonade.tscn" id="8_dqkwq"]
 [ext_resource type="Texture2D" uid="uid://bntyosts55lrc" path="res://Assets/Untitled 13.png" id="8_oib8b"]
 [ext_resource type="Texture2D" uid="uid://cr6adtfc1fgn7" path="res://Assets/Untitled 14.png" id="9_c5dqx"]
+[ext_resource type="FontFile" uid="uid://byp1sa2n5wlp0" path="res://Assets/monogram.ttf" id="11_rg7gv"]
 [ext_resource type="Texture2D" uid="uid://cymcts2c76c7e" path="res://Assets/Untitled 7.png" id="12_jp0pq"]
 [ext_resource type="Texture2D" uid="uid://iadk35qmxj2d" path="res://Assets/Untitled 3.png" id="13_uqnds"]
 [ext_resource type="Texture2D" uid="uid://bk8u0vw5s4mf3" path="res://Assets/Untitled 8.png" id="14_bn7ue"]
@@ -138,6 +139,7 @@ amount_to_make = 10
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
 offset_left = 202.0
@@ -186,6 +188,95 @@ The terms are as follows:
 - The loan must be paid in full within 7 days
 - The loan will accrue 5% interest on a daily basis. This will be added to your total debt
 - If the loan is not paid back in time, Hugh will take posession of your business"
+
+[node name="IncomeStatement" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="IncomeStatement"]
+offset_left = 354.0
+offset_top = 37.0
+offset_right = 797.0
+offset_bottom = 522.0
+color = Color(0.670588, 0.52549, 0.419608, 1)
+
+[node name="IncomeStatement" type="Label" parent="IncomeStatement/ColorRect"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 14.0
+offset_right = 375.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 48
+text = "Income Statement"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IncomeStatement/ColorRect"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 71.0
+offset_right = 320.0
+offset_bottom = 419.0
+
+[node name="Revenue" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "Revenue:"
+
+[node name="Cogs" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "Cost of Goods Sold:"
+
+[node name="GrossProfit" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "Gross Profit:"
+
+[node name="Spacer" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+
+[node name="Expenses" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "   ~~ Expenses ~~"
+
+[node name="Supplies" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "Supplies:"
+
+[node name="Minimumpayment" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "Minimum Payment:"
+
+[node name="Spacer2" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+
+[node name="NetIncome" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "Net Income:"
+
+[node name="Spacer3" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+
+[node name="OustandingDebt" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "Oustanding Debt:"
 
 [node name="Global_Controller" type="Node" parent="."]
 process_mode = 3
@@ -241,13 +332,6 @@ process_mode = 3
 wait_time = 50.0
 one_shot = true
 
-[node name="shoptest" type="Button" parent="."]
-offset_left = 37.0
-offset_top = 501.0
-offset_right = 128.0
-offset_bottom = 588.0
-text = "shop"
-
 [connection signal="pressed" from="Shop/Start_Round" to="." method="_on_start_round_pressed"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier1" to="." method="_on_table_tier_1_pressed"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier2" to="." method="_on_table_tier_2_pressed"]
@@ -257,4 +341,3 @@ text = "shop"
 [connection signal="pressed" from="StartScreen/Borrow75" to="." method="_on_borrow_75_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow100" to="." method="_on_borrow_100_pressed"]
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
-[connection signal="pressed" from="shoptest" to="." method="_on_shoptest_pressed"]

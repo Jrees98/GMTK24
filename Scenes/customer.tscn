@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dt1lpyyp3t26g"]
+[gd_scene load_steps=21 format=3 uid="uid://dt1lpyyp3t26g"]
 
 [ext_resource type="Texture2D" uid="uid://wyopdvj041js" path="res://Assets/Base Character - Free/walk.png" id="1_ft5u5"]
 [ext_resource type="Script" path="res://Scripts/customer.gd" id="1_m5wn8"]
 [ext_resource type="Texture2D" uid="uid://roebrgu2ff1o" path="res://Assets/Base Character - Free/idle.png" id="2_elsmo"]
 [ext_resource type="AudioStream" uid="uid://b6v8wc7gdgb4n" path="res://Assets/coin-3-42413.mp3" id="4_rie7u"]
+[ext_resource type="FontFile" uid="uid://byp1sa2n5wlp0" path="res://Assets/monogram.ttf" id="5_4q4cn"]
+[ext_resource type="Texture2D" uid="uid://br8f5qfttmbbf" path="res://Assets/text_bubble.png" id="5_o38wv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lc16t"]
 radius = 8.0
@@ -126,5 +128,21 @@ wait_time = 2.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_rie7u")
+
+[node name="TextBubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(120.5, -33.75)
+scale = Vector2(20, 3)
+texture = ExtResource("5_o38wv")
+
+[node name="Label" type="Label" parent="TextBubble"]
+offset_left = -2.375
+offset_top = -4.54167
+offset_right = 21.625
+offset_bottom = 8.45833
+scale = Vector2(0.255686, 0.33488)
+theme_override_colors/font_color = Color(0, 0.894118, 0, 1)
+theme_override_fonts/font = ExtResource("5_4q4cn")
+text = "Test"
 
 [connection signal="timeout" from="PurchasedLemonade" to="." method="_on_purchased_lemonade_timeout"]
