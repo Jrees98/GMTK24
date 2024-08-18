@@ -7,7 +7,6 @@
 script = ExtResource("1_po47d")
 customer_scene = ExtResource("2_uvomi")
 
-[node name="spawner_timer" type="Timer" parent="."]
-autostart = true
+[node name="spawner_timer" type="Timer" parent="." groups=["customers"]]
 
 [connection signal="timeout" from="spawner_timer" to="." method="_on_spawner_timer_timeout"]

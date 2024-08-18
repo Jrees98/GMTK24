@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	$Dollars.text = "0"
 	$Lemonade.text = "0"
-	get_tree().paused = true
+	#get_tree().paused = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,8 +35,12 @@ func _on_borrow_100_pressed():
 
 
 func _on_start_round_pressed():
+	Global.rounds_played += 1
+	$RoundTimer.start()
 	get_tree().paused = false
 	$Shop.hide()
+	$Spawner/spawner_timer.start()
+	$Spawner2/spawner_timer.start()
 
 
 func _on_table_tier_1_pressed():
@@ -62,3 +66,16 @@ func _on_table_tier_3_pressed():
 		$LemonadeStand/AnimatedSprite2D.frame = 2
 		Global.customer_purchase_chance = Global.tier3_purchase_chance
 		print(Global.customer_purchase_chance)
+
+
+func _on_round_timer_timeout():
+	$Shop.visible = true
+	$Spawner/spawner_timer.stop()
+	$Spawner2/spawner_timer.stop()
+	
+func pause_game():
+	get_tree().paused = true
+
+
+func _on_shoptest_pressed():
+	$Shop.visible = true

@@ -22,6 +22,8 @@ var tier1_purchase_chance : int
 var tier2_purchase_chance : int
 var tier3_purchase_chance : int
 
+var rounds_played : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tier1_purchase_chance = tier1_cost

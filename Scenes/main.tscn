@@ -19,103 +19,9 @@
 [node name="Main" type="Node2D" groups=["customers", "lemons"]]
 script = ExtResource("1_yitt0")
 
-[node name="Global_Controller" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("2_iagkp")
-
-[node name="Spawner" parent="." instance=ExtResource("4_ix7xf")]
-position = Vector2(1003, 372)
-
-[node name="Spawner2" parent="." instance=ExtResource("4_ix7xf")]
-position = Vector2(54, 378)
-move_right = true
-
-[node name="ExitArea" parent="." instance=ExtResource("7_u6c5t")]
-position = Vector2(-42, 413)
-
-[node name="ExitArea2" parent="." instance=ExtResource("7_u6c5t")]
-position = Vector2(1200, 448)
-
-[node name="LemonadeIcon" type="Sprite2D" parent="."]
-position = Vector2(40, 81)
-scale = Vector2(2, 2)
-texture = ExtResource("6_y5hbf")
-
-[node name="Lemonade" type="Label" parent="."]
-process_mode = 3
-offset_left = 83.0
-offset_top = 65.0
-offset_right = 370.0
-offset_bottom = 110.0
-theme_override_font_sizes/font_size = 32
-text = "m"
-
-[node name="Dollar" type="Sprite2D" parent="."]
-position = Vector2(41, 38)
-scale = Vector2(2, 2)
-texture = ExtResource("7_dq44a")
-
-[node name="Dollars" type="Label" parent="."]
-process_mode = 3
-offset_left = 83.0
-offset_top = 18.0
-offset_right = 193.0
-offset_bottom = 63.0
-theme_override_font_sizes/font_size = 32
-text = "Dollars"
-
-[node name="StartScreen" type="CanvasLayer" parent="."]
-process_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="StartScreen"]
-offset_left = 202.0
-offset_top = 38.0
-offset_right = 888.0
-offset_bottom = 623.0
-color = Color(1, 1, 0.682353, 1)
-
-[node name="StartGame" type="Button" parent="StartScreen"]
-offset_left = 443.0
-offset_top = 487.0
-offset_right = 595.0
-offset_bottom = 564.0
-text = "Click here to start"
-
-[node name="Borrow50" type="Button" parent="StartScreen"]
-offset_left = 271.0
-offset_top = 353.0
-offset_right = 387.0
-offset_bottom = 441.0
-text = "$50"
-
-[node name="Borrow75" type="Button" parent="StartScreen"]
-offset_left = 456.0
-offset_top = 358.0
-offset_right = 576.0
-offset_bottom = 441.0
-text = "$75"
-
-[node name="Borrow100" type="Button" parent="StartScreen"]
-offset_left = 639.0
-offset_top = 358.0
-offset_right = 752.0
-offset_bottom = 441.0
-text = "$100"
-
-[node name="TutorialText" type="Label" parent="StartScreen"]
-offset_left = 211.0
-offset_top = 43.0
-offset_right = 873.0
-offset_bottom = 170.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Your parents have been kind enough to loan you money for your lemonade business.
-The terms are as follows:
-- The loan must be paid in full within 7 days
-- The loan will accrue 5% interest on a daily basis. This will be added to your total debt
-- If the loan is not paid back in time, your parents will take posession of your business"
-
 [node name="Shop" type="CanvasLayer" parent="."]
-process_mode = 2
+process_mode = 3
+layer = 10
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Shop"]
@@ -230,15 +136,125 @@ amount_to_make = 5
 layout_mode = 2
 amount_to_make = 10
 
+[node name="StartScreen" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="StartScreen"]
+offset_left = 202.0
+offset_top = 38.0
+offset_right = 888.0
+offset_bottom = 623.0
+color = Color(1, 1, 0.682353, 1)
+
+[node name="StartGame" type="Button" parent="StartScreen"]
+offset_left = 443.0
+offset_top = 487.0
+offset_right = 595.0
+offset_bottom = 564.0
+text = "Click here to start"
+
+[node name="Borrow50" type="Button" parent="StartScreen"]
+offset_left = 271.0
+offset_top = 353.0
+offset_right = 387.0
+offset_bottom = 441.0
+text = "$50"
+
+[node name="Borrow75" type="Button" parent="StartScreen"]
+offset_left = 456.0
+offset_top = 358.0
+offset_right = 576.0
+offset_bottom = 441.0
+text = "$75"
+
+[node name="Borrow100" type="Button" parent="StartScreen"]
+offset_left = 639.0
+offset_top = 358.0
+offset_right = 752.0
+offset_bottom = 441.0
+text = "$100"
+
+[node name="TutorialText" type="Label" parent="StartScreen"]
+offset_left = 211.0
+offset_top = 43.0
+offset_right = 873.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hugh Ruffman, the local tough guy, has
+been kind enough to loan you money for your lemonade business.
+The terms are as follows:
+- The loan must be paid in full within 7 days
+- The loan will accrue 5% interest on a daily basis. This will be added to your total debt
+- If the loan is not paid back in time, Hugh will take posession of your business"
+
+[node name="Global_Controller" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_iagkp")
+
 [node name="LemonadeStand" parent="." instance=ExtResource("1_433fu")]
 position = Vector2(567, 261)
 scale = Vector2(3, 3)
 
-[connection signal="pressed" from="StartScreen/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="StartScreen/Borrow50" to="." method="_on_borrow_50_pressed"]
-[connection signal="pressed" from="StartScreen/Borrow75" to="." method="_on_borrow_75_pressed"]
-[connection signal="pressed" from="StartScreen/Borrow100" to="." method="_on_borrow_100_pressed"]
+[node name="Spawner" parent="." instance=ExtResource("4_ix7xf")]
+position = Vector2(1003, 372)
+
+[node name="Spawner2" parent="." instance=ExtResource("4_ix7xf")]
+position = Vector2(54, 378)
+move_right = true
+
+[node name="ExitArea" parent="." instance=ExtResource("7_u6c5t")]
+position = Vector2(-42, 413)
+
+[node name="ExitArea2" parent="." instance=ExtResource("7_u6c5t")]
+position = Vector2(1200, 448)
+
+[node name="LemonadeIcon" type="Sprite2D" parent="."]
+position = Vector2(40, 81)
+scale = Vector2(2, 2)
+texture = ExtResource("6_y5hbf")
+
+[node name="Lemonade" type="Label" parent="."]
+process_mode = 3
+offset_left = 83.0
+offset_top = 65.0
+offset_right = 370.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 32
+text = "m"
+
+[node name="Dollar" type="Sprite2D" parent="."]
+position = Vector2(41, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("7_dq44a")
+
+[node name="Dollars" type="Label" parent="."]
+process_mode = 3
+offset_left = 83.0
+offset_top = 18.0
+offset_right = 193.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 32
+text = "Dollars"
+
+[node name="RoundTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 50.0
+one_shot = true
+
+[node name="shoptest" type="Button" parent="."]
+offset_left = 37.0
+offset_top = 501.0
+offset_right = 128.0
+offset_bottom = 588.0
+text = "shop"
+
 [connection signal="pressed" from="Shop/Start_Round" to="." method="_on_start_round_pressed"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier1" to="." method="_on_table_tier_1_pressed"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier2" to="." method="_on_table_tier_2_pressed"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier3" to="." method="_on_table_tier_3_pressed"]
+[connection signal="pressed" from="StartScreen/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="StartScreen/Borrow50" to="." method="_on_borrow_50_pressed"]
+[connection signal="pressed" from="StartScreen/Borrow75" to="." method="_on_borrow_75_pressed"]
+[connection signal="pressed" from="StartScreen/Borrow100" to="." method="_on_borrow_100_pressed"]
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
+[connection signal="pressed" from="shoptest" to="." method="_on_shoptest_pressed"]
