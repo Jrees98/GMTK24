@@ -8,6 +8,5 @@ func _on_body_entered(body):
 		body.purchase_lemonade()
 	
 	if body.is_in_group("lemons"):
-		Global.lemons_in_stock += 1
 		body.queue_free()
 		lemon_entered.emit()

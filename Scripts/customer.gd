@@ -1,10 +1,10 @@
 extends CharacterBody2D
 var lemonade_cost = 1
-@export var speed := 0
+var speed : int 
 var direction = Vector2.ZERO
 var moving : bool
 func _ready():
-	pass
+	speed = Global.customer_move_speed
 
 func _physics_process(delta):
 	if moving:
@@ -23,6 +23,7 @@ func purchase_lemonade():
 	$PurchasedLemonade.start()
 	Global.dollars += lemonade_cost
 	Global.cups_of_lemonade -= 1
+	$AudioStreamPlayer2D.play()
 	print(Global.dollars)
 
 func set_direction(dir: Vector2):

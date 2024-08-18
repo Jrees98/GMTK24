@@ -1,5 +1,5 @@
 extends RigidBody2D
-var velocity = Vector2(-1,0)
+var velocity = Vector2(0,1)
 var speed = Global.lemon_speed
 
 # Called when the node enters the scene tree for the first time.

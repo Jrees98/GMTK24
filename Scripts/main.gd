@@ -10,38 +10,34 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Dollars.text = "Dollars: " + str(Global.dollars)
-	$Lemons.text = "Lemons: " + str(Global.lemons_in_stock)
-	$Lemonade.text = "Cups of Lemonade: " + str(Global.cups_of_lemonade)
+	$Dollars.text = str(Global.dollars)
+	$Lemonade.text = str(Global.cups_of_lemonade)
 	
 
 
-
-
-
-
-func _on_lemonade_timer_timeout():
-	if $ProgressBar.value == 100:
-		$ProgressBar/lemonade_timer.stop()
-		Global.cups_of_lemonade += 1
-		$ProgressBar.value = 0
-		making_lemonade = false
-	else:
-		$ProgressBar.value += 50
-
+#func _on_lemonade_timer_timeout():
+	#if $ProgressBar.value == 100:
+		#$ProgressBar/lemonade_timer.stop()
+		#Global.cups_of_lemonade += 1
+		#$ProgressBar.value = 0
+		#making_lemonade = false
+	#else:
+		#$ProgressBar.value += 50
+func _on_your_stand_lemon_entered():
+	Global.cups_of_lemonade += 1
 
 func make_lemonade():
 	making_lemonade = true
 	$ProgressBar/lemonade_timer.start()
-	Global.lemons_in_stock -= 3
+	Global.lemons_in_stock -= 1
 
 
-func _on_check_lemons_timeout():
-	if Global.lemons_in_stock >= 3 and making_lemonade == false:
-		make_lemonade()
+#func _on_check_lemons_timeout():
+	#if Global.lemons_in_stock >= 3 and making_lemonade == false:
+		#make_lemonade()
 
 func _on_upgrade_belt_pressed():
-	Global.lemon_speed = Global.lemon_speed * 2
+	Global.customer_move_speed += 100
 
 
 func _on_upgrade_farm_pressed():
@@ -52,6 +48,7 @@ func _on_upgrade_farm_pressed():
 func _on_upgrade_marketing_pressed():
 	print(Global.customer_spawn_rate)
 	Global.customer_spawn_rate /= 2
+	$YourStand/AnimatedSprite2D.frame += 1
 
 func _on_upgrade_lemonade_production_pressed():
 	$ProgressBar/lemonade_timer.wait_time /= 2
@@ -63,5 +60,4 @@ func _on_upgrade_price_pressed():
 	print(Global.lemonade_cost)
 
 
-func _on_your_stand_lemon_entered():
-	pass # Replace with function body.
+

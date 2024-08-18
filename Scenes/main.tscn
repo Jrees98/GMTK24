@@ -1,20 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://b48k7ome4d88h"]
+[gd_scene load_steps=13 format=3 uid="uid://b48k7ome4d88h"]
 
 [ext_resource type="PackedScene" uid="uid://cl37ty27tb2pv" path="res://Scenes/lemonade_stand.tscn" id="1_433fu"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
-[ext_resource type="Texture2D" uid="uid://bdvnq5fl8fp6o" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="2_bsgrd"]
-[ext_resource type="FontFile" uid="uid://byp1sa2n5wlp0" path="res://Assets/monogram.ttf" id="3_g4lge"]
 [ext_resource type="PackedScene" uid="uid://cyfqphb3fgxvn" path="res://Scenes/lemon_farm.tscn" id="4_a0t54"]
 [ext_resource type="PackedScene" uid="uid://c5jraoq5jrtmo" path="res://Scenes/spawner.tscn" id="4_ix7xf"]
+[ext_resource type="Texture2D" uid="uid://cirr2fc83dkmh" path="res://Assets/Untitled 11.png" id="6_y5hbf"]
+[ext_resource type="Texture2D" uid="uid://d2ow732tkkb8u" path="res://Assets/dollar.png" id="7_dq44a"]
 [ext_resource type="PackedScene" uid="uid://cp2poy83r85ie" path="res://Scenes/exit_area.tscn" id="7_u6c5t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6mtt"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkki7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_detef"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pokru"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kkui"]
 
@@ -30,43 +22,37 @@
 script = ExtResource("1_yitt0")
 
 [node name="YourStand" parent="." instance=ExtResource("1_433fu")]
-position = Vector2(486, 345)
+position = Vector2(514, 344)
 scale = Vector2(2, 2)
 stop_chance = 100
 
 [node name="Spawner" parent="." instance=ExtResource("4_ix7xf")]
-position = Vector2(615, 416)
+visible = false
+position = Vector2(1003, 372)
 
 [node name="Spawner2" parent="." instance=ExtResource("4_ix7xf")]
-position = Vector2(378, 419)
+position = Vector2(54, 378)
 move_right = true
 
 [node name="LemonFarm" parent="." instance=ExtResource("4_a0t54")]
-position = Vector2(926, 332)
+position = Vector2(533, -5.99999)
+scale = Vector2(4.47144, 0.786017)
 
 [node name="Dollars" type="Label" parent="."]
-offset_left = 12.0
-offset_top = 14.0
-offset_right = 67.0
-offset_bottom = 37.0
+offset_left = 75.0
+offset_top = 221.0
+offset_right = 185.0
+offset_bottom = 266.0
 theme_override_font_sizes/font_size = 32
 text = "Dollars"
 
-[node name="Lemons" type="Label" parent="."]
-offset_left = 12.0
-offset_top = 45.0
-offset_right = 73.0
-offset_bottom = 68.0
-theme_override_font_sizes/font_size = 32
-text = "Lemons"
-
 [node name="Lemonade" type="Label" parent="."]
-offset_left = 11.0
-offset_top = 77.0
-offset_right = 155.0
-offset_bottom = 100.0
+offset_left = 75.0
+offset_top = 268.0
+offset_right = 362.0
+offset_bottom = 313.0
 theme_override_font_sizes/font_size = 32
-text = "Cups of Lemonade"
+text = "m"
 
 [node name="ExitArea" parent="." instance=ExtResource("7_u6c5t")]
 position = Vector2(-42, 413)
@@ -75,6 +61,7 @@ position = Vector2(-42, 413)
 position = Vector2(1200, 448)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = 358.0
 offset_top = 229.0
 offset_right = 612.0
@@ -89,64 +76,56 @@ wait_time = 0.1
 autostart = true
 
 [node name="UpgradeMarketing" type="Button" parent="."]
-offset_left = 180.0
-offset_top = 532.0
-offset_right = 353.0
+offset_left = 364.0
+offset_top = 550.0
+offset_right = 522.0
 offset_bottom = 637.0
 text = "Upgrade Marketing"
 
 [node name="UpgradeLemonadeProduction" type="Button" parent="."]
-offset_left = 396.0
-offset_top = 531.0
-offset_right = 564.0
-offset_bottom = 642.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_a6mtt")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_tkki7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_detef")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_pokru")
+offset_left = 1048.0
+offset_top = 354.0
+offset_right = 1212.0
+offset_bottom = 414.0
+scale = Vector2(0.524144, 0.969362)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2kkui")
-
-[node name="Sprite2D" type="Sprite2D" parent="UpgradeLemonadeProduction"]
-position = Vector2(82.5, 56.5)
-scale = Vector2(1.69792, 1.13542)
-texture = ExtResource("2_bsgrd")
-
-[node name="Label" type="Label" parent="UpgradeLemonadeProduction/Sprite2D"]
-offset_left = -41.5215
-offset_top = -35.6697
-offset_right = 54.4785
-offset_bottom = 13.3303
-scale = Vector2(0.809711, 1.64751)
-theme_override_fonts/font = ExtResource("3_g4lge")
-text = "Upgrade 
-Production Speed
-"
+text = "Upgrade Production"
 
 [node name="UpgradeBelt" type="Button" parent="."]
-offset_left = 609.0
-offset_top = 539.0
-offset_right = 759.0
-offset_bottom = 639.0
+offset_left = 692.0
+offset_top = 543.0
+offset_right = 842.0
+offset_bottom = 643.0
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4alx1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ryoal")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ujmu8")
 text = "Upgrade Belt"
 
 [node name="UpgradeFarm" type="Button" parent="."]
-offset_left = 804.0
-offset_top = 543.0
-offset_right = 929.0
-offset_bottom = 637.0
+offset_left = 547.0
+offset_top = 548.0
+offset_right = 672.0
+offset_bottom = 642.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v4mw8")
 text = "Upgrade Farm"
 
 [node name="UpgradePrice" type="Button" parent="."]
-offset_left = 953.0
-offset_top = 545.0
-offset_right = 1076.0
-offset_bottom = 635.0
+offset_left = 1019.0
+offset_top = 424.0
+offset_right = 1142.0
+offset_bottom = 514.0
 text = "Upgrade
 Price"
+
+[node name="LemonadeIcon" type="Sprite2D" parent="."]
+position = Vector2(32, 284)
+scale = Vector2(2, 2)
+texture = ExtResource("6_y5hbf")
+
+[node name="Dollar" type="Sprite2D" parent="."]
+position = Vector2(33, 241)
+scale = Vector2(2, 2)
+texture = ExtResource("7_dq44a")
 
 [connection signal="lemon_entered" from="YourStand" to="." method="_on_your_stand_lemon_entered"]
 [connection signal="timeout" from="ProgressBar/lemonade_timer" to="." method="_on_lemonade_timer_timeout"]
