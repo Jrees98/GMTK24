@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b48k7ome4d88h"]
+[gd_scene load_steps=16 format=3 uid="uid://b48k7ome4d88h"]
 
+[ext_resource type="PackedScene" uid="uid://cl37ty27tb2pv" path="res://Scenes/lemonade_stand.tscn" id="1_433fu"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
 [ext_resource type="Script" path="res://Scenes/Global_Controller.gd" id="2_iagkp"]
 [ext_resource type="PackedScene" uid="uid://c5jraoq5jrtmo" path="res://Scenes/spawner.tscn" id="4_ix7xf"]
@@ -11,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://empr3fx3ecca" path="res://Scenes/make_lemonade.tscn" id="8_dqkwq"]
 [ext_resource type="Texture2D" uid="uid://bntyosts55lrc" path="res://Assets/Untitled 13.png" id="8_oib8b"]
 [ext_resource type="Texture2D" uid="uid://cr6adtfc1fgn7" path="res://Assets/Untitled 14.png" id="9_c5dqx"]
+[ext_resource type="Texture2D" uid="uid://cymcts2c76c7e" path="res://Assets/Untitled 7.png" id="12_jp0pq"]
+[ext_resource type="Texture2D" uid="uid://iadk35qmxj2d" path="res://Assets/Untitled 3.png" id="13_uqnds"]
+[ext_resource type="Texture2D" uid="uid://bk8u0vw5s4mf3" path="res://Assets/Untitled 8.png" id="14_bn7ue"]
 
 [node name="Main" type="Node2D" groups=["customers", "lemons"]]
 script = ExtResource("1_yitt0")
@@ -122,7 +126,7 @@ offset_bottom = 562.0
 color = Color(0.705882, 0.156863, 0.0941176, 1)
 
 [node name="Lemons" parent="Shop" instance=ExtResource("6_x1x7r")]
-position = Vector2(272, 195)
+position = Vector2(274, 171)
 texture = ExtResource("6_0syao")
 quantity_1 = 1
 price_1 = 1
@@ -134,7 +138,7 @@ inventory_item_texture = ExtResource("6_0syao")
 item_type = "lemons"
 
 [node name="Cups" parent="Shop" instance=ExtResource("6_x1x7r")]
-position = Vector2(270, 269)
+position = Vector2(273, 214)
 texture = ExtResource("6_y5hbf")
 quantity_1 = 1
 price_1 = 1
@@ -146,7 +150,7 @@ inventory_item_texture = ExtResource("6_y5hbf")
 item_type = "cups"
 
 [node name="Ice" parent="Shop" instance=ExtResource("6_x1x7r")]
-position = Vector2(269, 336)
+position = Vector2(275, 258)
 texture = ExtResource("8_oib8b")
 quantity_1 = 1
 price_1 = 1
@@ -158,7 +162,7 @@ inventory_item_texture = ExtResource("8_oib8b")
 item_type = "ice"
 
 [node name="Sugar" parent="Shop" instance=ExtResource("6_x1x7r")]
-position = Vector2(270, 388)
+position = Vector2(275, 302)
 texture = ExtResource("9_c5dqx")
 quantity_1 = 1
 price_1 = 1
@@ -190,29 +194,51 @@ offset_right = 904.0
 offset_bottom = 424.0
 text = "1 cup = 1 Lemon, 1 Cup, 1 Ice, 1 Sugar"
 
-[node name="MakeLemonade" parent="Shop" instance=ExtResource("8_dqkwq")]
-offset_left = 662.0
-offset_top = 471.0
-offset_right = 689.0
-offset_bottom = 502.0
+[node name="ShopsHBox" type="HBoxContainer" parent="Shop"]
+offset_left = 243.0
+offset_top = 410.0
+offset_right = 467.0
+offset_bottom = 482.0
+
+[node name="TableTier1" type="Button" parent="Shop/ShopsHBox"]
+layout_mode = 2
+icon = ExtResource("12_jp0pq")
+
+[node name="TableTier2" type="Button" parent="Shop/ShopsHBox"]
+layout_mode = 2
+icon = ExtResource("13_uqnds")
+
+[node name="TableTier3" type="Button" parent="Shop/ShopsHBox"]
+layout_mode = 2
+icon = ExtResource("14_bn7ue")
+
+[node name="MakeLemonadeHBox" type="HBoxContainer" parent="Shop"]
+offset_left = 702.0
+offset_top = 440.0
+offset_right = 766.0
+offset_bottom = 495.0
+
+[node name="MakeLemonade" parent="Shop/MakeLemonadeHBox" instance=ExtResource("8_dqkwq")]
+layout_mode = 2
 amount_to_make = 1
 
-[node name="MakeLemonade3" parent="Shop" instance=ExtResource("8_dqkwq")]
-offset_left = 733.0
-offset_top = 472.0
-offset_right = 760.0
-offset_bottom = 503.0
+[node name="MakeLemonade3" parent="Shop/MakeLemonadeHBox" instance=ExtResource("8_dqkwq")]
+layout_mode = 2
 amount_to_make = 5
 
-[node name="MakeLemonade2" parent="Shop" instance=ExtResource("8_dqkwq")]
-offset_left = 799.0
-offset_top = 470.0
-offset_right = 826.0
-offset_bottom = 501.0
+[node name="MakeLemonade2" parent="Shop/MakeLemonadeHBox" instance=ExtResource("8_dqkwq")]
+layout_mode = 2
 amount_to_make = 10
+
+[node name="LemonadeStand" parent="." instance=ExtResource("1_433fu")]
+position = Vector2(567, 261)
+scale = Vector2(3, 3)
 
 [connection signal="pressed" from="StartScreen/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow50" to="." method="_on_borrow_50_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow75" to="." method="_on_borrow_75_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow100" to="." method="_on_borrow_100_pressed"]
 [connection signal="pressed" from="Shop/Start_Round" to="." method="_on_start_round_pressed"]
+[connection signal="pressed" from="Shop/ShopsHBox/TableTier1" to="." method="_on_table_tier_1_pressed"]
+[connection signal="pressed" from="Shop/ShopsHBox/TableTier2" to="." method="_on_table_tier_2_pressed"]
+[connection signal="pressed" from="Shop/ShopsHBox/TableTier3" to="." method="_on_table_tier_3_pressed"]

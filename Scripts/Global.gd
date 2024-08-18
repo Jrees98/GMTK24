@@ -13,6 +13,9 @@ var cups : int
 var ice : int
 var sugar : int
 
+var tier1_cost := 20
+var tier2_cost := 40
+var tier3_cost := 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
