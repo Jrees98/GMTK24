@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b48k7ome4d88h"]
+[gd_scene load_steps=12 format=3 uid="uid://b48k7ome4d88h"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
+[ext_resource type="Script" path="res://Scenes/Global_Controller.gd" id="2_iagkp"]
 [ext_resource type="PackedScene" uid="uid://c5jraoq5jrtmo" path="res://Scenes/spawner.tscn" id="4_ix7xf"]
 [ext_resource type="Texture2D" uid="uid://dxuia0p3svfly" path="res://Assets/Untitled 10.png" id="6_0syao"]
 [ext_resource type="PackedScene" uid="uid://k4cev62oe85r" path="res://item.tscn" id="6_x1x7r"]
@@ -13,6 +14,10 @@
 
 [node name="Main" type="Node2D" groups=["customers", "lemons"]]
 script = ExtResource("1_yitt0")
+
+[node name="Global_Controller" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_iagkp")
 
 [node name="Spawner" parent="." instance=ExtResource("4_ix7xf")]
 position = Vector2(1003, 372)
@@ -107,6 +112,7 @@ The terms are as follows:
 
 [node name="Shop" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Shop"]
 offset_left = 177.0
@@ -189,7 +195,21 @@ offset_left = 662.0
 offset_top = 471.0
 offset_right = 689.0
 offset_bottom = 502.0
+amount_to_make = 1
+
+[node name="MakeLemonade3" parent="Shop" instance=ExtResource("8_dqkwq")]
+offset_left = 733.0
+offset_top = 472.0
+offset_right = 760.0
+offset_bottom = 503.0
 amount_to_make = 5
+
+[node name="MakeLemonade2" parent="Shop" instance=ExtResource("8_dqkwq")]
+offset_left = 799.0
+offset_top = 470.0
+offset_right = 826.0
+offset_bottom = 501.0
+amount_to_make = 10
 
 [connection signal="pressed" from="StartScreen/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow50" to="." method="_on_borrow_50_pressed"]
