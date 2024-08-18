@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b48k7ome4d88h"]
+[gd_scene load_steps=11 format=3 uid="uid://b48k7ome4d88h"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
 [ext_resource type="PackedScene" uid="uid://c5jraoq5jrtmo" path="res://Scenes/spawner.tscn" id="4_ix7xf"]
+[ext_resource type="Texture2D" uid="uid://dxuia0p3svfly" path="res://Assets/Untitled 10.png" id="6_0syao"]
+[ext_resource type="PackedScene" uid="uid://k4cev62oe85r" path="res://item.tscn" id="6_x1x7r"]
 [ext_resource type="Texture2D" uid="uid://cirr2fc83dkmh" path="res://Assets/Untitled 11.png" id="6_y5hbf"]
 [ext_resource type="Texture2D" uid="uid://d2ow732tkkb8u" path="res://Assets/dollar.png" id="7_dq44a"]
 [ext_resource type="PackedScene" uid="uid://cp2poy83r85ie" path="res://Scenes/exit_area.tscn" id="7_u6c5t"]
+[ext_resource type="PackedScene" uid="uid://empr3fx3ecca" path="res://Scenes/make_lemonade.tscn" id="8_dqkwq"]
+[ext_resource type="Texture2D" uid="uid://bntyosts55lrc" path="res://Assets/Untitled 13.png" id="8_oib8b"]
+[ext_resource type="Texture2D" uid="uid://cr6adtfc1fgn7" path="res://Assets/Untitled 14.png" id="9_c5dqx"]
 
 [node name="Main" type="Node2D" groups=["customers", "lemons"]]
 script = ExtResource("1_yitt0")
@@ -28,6 +33,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("6_y5hbf")
 
 [node name="Lemonade" type="Label" parent="."]
+process_mode = 3
 offset_left = 83.0
 offset_top = 65.0
 offset_right = 370.0
@@ -41,6 +47,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("7_dq44a")
 
 [node name="Dollars" type="Label" parent="."]
+process_mode = 3
 offset_left = 83.0
 offset_top = 18.0
 offset_right = 193.0
@@ -52,17 +59,140 @@ text = "Dollars"
 process_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
-offset_left = 85.0
-offset_top = 21.0
-offset_right = 1059.0
+offset_left = 202.0
+offset_top = 38.0
+offset_right = 888.0
 offset_bottom = 623.0
 color = Color(1, 1, 0.682353, 1)
 
 [node name="StartGame" type="Button" parent="StartScreen"]
-offset_left = 470.0
-offset_top = 482.0
-offset_right = 622.0
-offset_bottom = 559.0
+offset_left = 443.0
+offset_top = 487.0
+offset_right = 595.0
+offset_bottom = 564.0
 text = "Click here to start"
 
+[node name="Borrow50" type="Button" parent="StartScreen"]
+offset_left = 271.0
+offset_top = 353.0
+offset_right = 387.0
+offset_bottom = 441.0
+text = "$50"
+
+[node name="Borrow75" type="Button" parent="StartScreen"]
+offset_left = 456.0
+offset_top = 358.0
+offset_right = 576.0
+offset_bottom = 441.0
+text = "$75"
+
+[node name="Borrow100" type="Button" parent="StartScreen"]
+offset_left = 639.0
+offset_top = 358.0
+offset_right = 752.0
+offset_bottom = 441.0
+text = "$100"
+
+[node name="TutorialText" type="Label" parent="StartScreen"]
+offset_left = 211.0
+offset_top = 43.0
+offset_right = 873.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Your parents have been kind enough to loan you money for your lemonade business.
+The terms are as follows:
+- The loan must be paid in full within 7 days
+- The loan will accrue 5% interest on a daily basis. This will be added to your total debt
+- If the loan is not paid back in time, your parents will take posession of your business"
+
+[node name="Shop" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Shop"]
+offset_left = 177.0
+offset_top = 101.0
+offset_right = 924.0
+offset_bottom = 562.0
+color = Color(0.705882, 0.156863, 0.0941176, 1)
+
+[node name="Lemons" parent="Shop" instance=ExtResource("6_x1x7r")]
+position = Vector2(272, 195)
+texture = ExtResource("6_0syao")
+quantity_1 = 1
+price_1 = 1
+quantity_2 = 5
+price_2 = 5
+quantity_3 = 10
+price_3 = 10
+inventory_item_texture = ExtResource("6_0syao")
+item_type = "lemons"
+
+[node name="Cups" parent="Shop" instance=ExtResource("6_x1x7r")]
+position = Vector2(270, 269)
+texture = ExtResource("6_y5hbf")
+quantity_1 = 1
+price_1 = 1
+quantity_2 = 5
+price_2 = 5
+quantity_3 = 10
+price_3 = 10
+inventory_item_texture = ExtResource("6_y5hbf")
+item_type = "cups"
+
+[node name="Ice" parent="Shop" instance=ExtResource("6_x1x7r")]
+position = Vector2(269, 336)
+texture = ExtResource("8_oib8b")
+quantity_1 = 1
+price_1 = 1
+quantity_2 = 5
+price_2 = 5
+quantity_3 = 10
+price_3 = 10
+inventory_item_texture = ExtResource("8_oib8b")
+item_type = "ice"
+
+[node name="Sugar" parent="Shop" instance=ExtResource("6_x1x7r")]
+position = Vector2(270, 388)
+texture = ExtResource("9_c5dqx")
+quantity_1 = 1
+price_1 = 1
+quantity_2 = 5
+price_2 = 5
+quantity_3 = 10
+price_3 = 10
+inventory_item_texture = ExtResource("9_c5dqx")
+item_type = "sugar"
+
+[node name="Start_Round" type="Button" parent="Shop"]
+offset_left = 478.0
+offset_top = 506.0
+offset_right = 579.0
+offset_bottom = 537.0
+text = "Start Round"
+
+[node name="InventoryTag" type="Label" parent="Shop"]
+offset_left = 703.0
+offset_top = 139.0
+offset_right = 778.0
+offset_bottom = 162.0
+text = "Inventory"
+
+[node name="Recipie" type="Label" parent="Shop"]
+offset_left = 617.0
+offset_top = 401.0
+offset_right = 904.0
+offset_bottom = 424.0
+text = "1 cup = 1 Lemon, 1 Cup, 1 Ice, 1 Sugar"
+
+[node name="MakeLemonade" parent="Shop" instance=ExtResource("8_dqkwq")]
+offset_left = 662.0
+offset_top = 471.0
+offset_right = 689.0
+offset_bottom = 502.0
+amount_to_make = 5
+
 [connection signal="pressed" from="StartScreen/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="StartScreen/Borrow50" to="." method="_on_borrow_50_pressed"]
+[connection signal="pressed" from="StartScreen/Borrow75" to="." method="_on_borrow_75_pressed"]
+[connection signal="pressed" from="StartScreen/Borrow100" to="." method="_on_borrow_100_pressed"]
+[connection signal="pressed" from="Shop/Start_Round" to="." method="_on_start_round_pressed"]

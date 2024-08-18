@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://k4cev62oe85r"]
+
+[ext_resource type="Script" path="res://item.gd" id="1_sop4l"]
+
+[node name="Item" type="Sprite2D"]
+process_mode = 3
+script = ExtResource("1_sop4l")
+
+[node name="Quantity1" type="Button" parent="."]
+offset_left = 24.0
+offset_top = -16.0
+offset_right = 42.0
+offset_bottom = 15.0
+text = "1"
+
+[node name="Quantity2" type="Button" parent="."]
+offset_left = 51.0
+offset_top = -16.0
+offset_right = 78.0
+offset_bottom = 15.0
+text = "10
+"
+
+[node name="Quantity3" type="Button" parent="."]
+offset_left = 88.0
+offset_top = -15.0
+offset_right = 115.0
+offset_bottom = 16.0
+text = "50
+"
+
+[node name="InventoryItem" type="Sprite2D" parent="."]
+position = Vector2(400, 2.08165e-12)
+
+[node name="ItemQuantity" type="Label" parent="InventoryItem"]
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 24.0
+
+[connection signal="pressed" from="Quantity1" to="." method="_on_quantity_1_pressed"]
+[connection signal="pressed" from="Quantity2" to="." method="_on_quantity_2_pressed"]
+[connection signal="pressed" from="Quantity3" to="." method="_on_quantity_3_pressed"]
