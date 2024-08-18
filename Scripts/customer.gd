@@ -4,7 +4,7 @@ var speed : int
 var direction = Vector2.ZERO
 var moving : bool
 func _ready():
-	speed = Global.customer_move_speed
+	pass
 
 func _physics_process(delta):
 	if moving:

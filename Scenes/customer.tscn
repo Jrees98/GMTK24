@@ -107,6 +107,7 @@ animations = [{
 }]
 
 [node name="Customer" type="CharacterBody2D"]
+z_index = 1
 scale = Vector2(2, 8)
 collision_mask = 0
 script = ExtResource("1_m5wn8")

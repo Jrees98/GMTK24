@@ -40,16 +40,25 @@ func _on_start_round_pressed():
 
 
 func _on_table_tier_1_pressed():
-	Global.dollars -= Global.tier1_cost
-	$LemonadeStand/AnimatedSprite2D.frame = 0
+	if Global.dollars >= Global.tier1_cost:
+		Global.dollars -= Global.tier1_cost
+		$LemonadeStand/AnimatedSprite2D.frame = 0
+		Global.customer_purchase_chance = Global.tier1_purchase_chance
+		print(Global.customer_purchase_chance)
 
 
 func _on_table_tier_2_pressed():
-	Global.dollars -= Global.tier2_cost
-	$LemonadeStand/AnimatedSprite2D.frame = 1
+	if Global.dollars >= Global.tier2_cost:
+		Global.dollars -= Global.tier2_cost
+		$LemonadeStand/AnimatedSprite2D.frame = 1
+		Global.customer_purchase_chance = Global.tier2_purchase_chance
+		print(Global.customer_purchase_chance)
 	
 
 
 func _on_table_tier_3_pressed():
-	Global.dollars -= Global.tier3_cost
-	$LemonadeStand/AnimatedSprite2D.frame = 2
+	if Global.dollars >= Global.tier3_cost:
+		Global.dollars -= Global.tier3_cost
+		$LemonadeStand/AnimatedSprite2D.frame = 2
+		Global.customer_purchase_chance = Global.tier3_purchase_chance
+		print(Global.customer_purchase_chance)

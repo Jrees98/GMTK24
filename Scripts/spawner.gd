@@ -13,14 +13,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$spawner_timer.wait_time = Global.customer_spawn_rate
+	pass
 
 
 func _on_spawner_timer_timeout():
-	var customer = customer_scene.instantiate()
-	add_child(customer)
-	customer.add_to_group("customers")
-	customer.set_direction(Vector2(move_direction,0))
-	customer.moving = true
-	var random_time_interval = randf_range(1,5)
+	var spawn_chance = randf_range(1,100)
+	if spawn_chance <= Global.customer_spawn_rate:
+		var customer = customer_scene.instantiate()
+		add_child(customer)
+		customer.add_to_group("customers")
+		customer.set_direction(Vector2(move_direction,0))
+		customer.moving = true
+		var random_move_speed = randf_range(50,200)
+		customer.speed = random_move_speed
+
+
 
