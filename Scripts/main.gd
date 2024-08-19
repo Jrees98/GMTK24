@@ -34,13 +34,15 @@ func _on_borrow_100_pressed():
 	$Dollars.text = str(100)
 
 
-func _on_start_round_pressed():
+func _on_start_round_pressed(): # START ROUND HERE
 	Global.rounds_played += 1
 	$RoundTimer.start()
 	get_tree().paused = false
 	$Shop.hide()
 	$Spawner/spawner_timer.start()
 	$Spawner2/spawner_timer.start()
+	Global.can_purchase = true
+
 
 
 func _on_table_tier_1_pressed():
@@ -48,7 +50,7 @@ func _on_table_tier_1_pressed():
 		Global.dollars -= Global.tier1_cost
 		$LemonadeStand/AnimatedSprite2D.frame = 0
 		Global.customer_purchase_chance = Global.tier1_purchase_chance
-		print(Global.customer_purchase_chance)
+		Global.minimum_payment = 2
 
 
 func _on_table_tier_2_pressed():
@@ -56,7 +58,7 @@ func _on_table_tier_2_pressed():
 		Global.dollars -= Global.tier2_cost
 		$LemonadeStand/AnimatedSprite2D.frame = 1
 		Global.customer_purchase_chance = Global.tier2_purchase_chance
-		print(Global.customer_purchase_chance)
+		Global.minimum_payment = 4
 	
 
 
@@ -65,17 +67,25 @@ func _on_table_tier_3_pressed():
 		Global.dollars -= Global.tier3_cost
 		$LemonadeStand/AnimatedSprite2D.frame = 2
 		Global.customer_purchase_chance = Global.tier3_purchase_chance
-		print(Global.customer_purchase_chance)
+		Global.minimum_payment = 6
 
 
-func _on_round_timer_timeout():
-	$Shop.visible = true
+func _on_round_timer_timeout():  # ROUND TIMER ENDING
+	$IncomeStatement.show()
 	$Spawner/spawner_timer.stop()
 	$Spawner2/spawner_timer.stop()
-	
-func pause_game():
-	get_tree().paused = true
+	Global.can_purchase = false
+	calculate_incomestatement()
+	Global.dollars -= Global.minimum_payment
 
 
-func _on_shoptest_pressed():
-	$Shop.visible = true
+func _on_button_pressed():  # THIS IS BUTTON FOR INCOME STATEMENT NEXT ROUND
+	$IncomeStatement.hide()
+	$Shop.show()
+	Global.supply_cost = 0
+	Global.lemonade_sold = 0
+
+func calculate_incomestatement():
+	$IncomeStatement/ColorRect/VBoxContainer/Revenue.text = "Revenue: $" + str(Global.lemonade_sold)
+	$IncomeStatement/ColorRect/VBoxContainer/Supplies.text = "Supplies: $" + str(Global.supply_cost)
+	$IncomeStatement/ColorRect/VBoxContainer/Minimumpayment.text = "Minimum Payment: $" + str(Global.minimum_payment)

@@ -28,6 +28,7 @@ func _physics_process(delta):
 func _on_quantity_1_pressed():
 	if Global.dollars >= price_1:
 		Global.dollars -= price_1
+		Global.supply_cost += price_1
 		dollars_node.text = str(Global.dollars)
 		if item_type == "lemons":
 			Global.lemons += quantity_1
@@ -48,8 +49,9 @@ func _on_quantity_1_pressed():
 
 
 func _on_quantity_2_pressed():
-	if Global.dollars >= price_1:
+	if Global.dollars >= price_2:
 		Global.dollars -= price_2
+		Global.supply_cost += price_2
 		dollars_node.text = str(Global.dollars)
 		if item_type == "lemons":
 			Global.lemons += quantity_2
@@ -70,8 +72,9 @@ func _on_quantity_2_pressed():
 
 
 func _on_quantity_3_pressed():
-	if Global.dollars >= price_1:
+	if Global.dollars >= price_3:
 		Global.dollars -= price_3
+		Global.supply_cost += price_3
 		dollars_node.text = str(Global.dollars)
 		if item_type == "lemons":
 			Global.lemons += quantity_3

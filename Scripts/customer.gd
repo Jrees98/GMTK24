@@ -28,6 +28,7 @@ func purchase_lemonade():
 	Global.cups_of_lemonade -= 1
 	$AudioStreamPlayer2D.play()
 	$TextBubble/Label.text = "What a hot day!"
+	Global.lemonade_sold += 1
 	print(Global.dollars)
 
 func set_direction(dir: Vector2):
