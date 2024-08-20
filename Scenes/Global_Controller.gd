@@ -14,3 +14,5 @@ func _process(delta):
 	$"../Shop/Cups/InventoryItem/ItemQuantity".text = str(Global.cups)
 	$"../Shop/Ice/InventoryItem/ItemQuantity".text = str(Global.ice)
 	$"../Shop/Sugar/InventoryItem/ItemQuantity".text = str(Global.sugar)
+	$"../DaysPlayed".text = "Day: " + str(Global.rounds_played)
+	$"../Shop/DebtLeftValue".text = str(Global.debt_amount)

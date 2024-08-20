@@ -14,7 +14,7 @@ func _physics_process(delta):
 func move_forward():
 	$TextBubble.visible = false
 	$TextBubble/Label.text = ""
-	$AnimatedSprite2D.play("walk")
+	$AnimatedSprite2D.play("new_person_walk")
 	velocity.x = direction.x * speed
 	move_and_slide()
 
@@ -33,7 +33,7 @@ func purchase_lemonade():
 
 func set_direction(dir: Vector2):
 	direction = dir
-	$AnimatedSprite2D.flip_h = direction.x > 0
+	$AnimatedSprite2D.flip_h = direction.x < 0
 
 
 

@@ -1,11 +1,11 @@
 extends Sprite2D
 
 @export var quantity_1 : int
-@export var price_1 : int
+@export var price_1 : float
 @export var quantity_2 : int
-@export var price_2 : int
+@export var price_2 : float
 @export var quantity_3 : int
-@export var price_3 : int
+@export var price_3 : float
 @export var inventory_item_texture : Texture2D
 @export var item_type : String
 
@@ -20,6 +20,7 @@ func _ready():
 	$Quantity3.text = str(quantity_3)
 	$InventoryItem.texture = inventory_item_texture
 	$InventoryItem/ItemQuantity.text = str(item_quantity)
+	$Price.text = "$" + str(price_1)
 
 func _physics_process(delta):
 	pass
@@ -92,3 +93,17 @@ func _on_quantity_3_pressed():
 	print("cups " +  str(Global.cups))
 	print("ice " + str(Global.ice))
 	print("sugar " + str(Global.sugar))
+
+
+func _on_quantity_1_mouse_entered():
+	$Price.text = "$" + str(price_1)
+
+
+
+
+func _on_quantity_2_mouse_entered():
+	$Price.text = "$" + str(price_2)
+
+
+func _on_quantity_3_mouse_entered():
+	$Price.text = "$" + str(price_3)

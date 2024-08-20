@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b48k7ome4d88h"]
+[gd_scene load_steps=41 format=3 uid="uid://b48k7ome4d88h"]
 
 [ext_resource type="PackedScene" uid="uid://cl37ty27tb2pv" path="res://Scenes/lemonade_stand.tscn" id="1_433fu"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_yitt0"]
 [ext_resource type="Script" path="res://Scenes/Global_Controller.gd" id="2_iagkp"]
+[ext_resource type="Texture2D" uid="uid://bdvnq5fl8fp6o" path="res://Assets/UI_Flat_Frame_02_Standard.png" id="2_xhg71"]
+[ext_resource type="Texture2D" uid="uid://cf1av221ub1b0" path="res://Assets/ButtonUp.png" id="3_pd8wq"]
 [ext_resource type="PackedScene" uid="uid://c5jraoq5jrtmo" path="res://Scenes/spawner.tscn" id="4_ix7xf"]
 [ext_resource type="Texture2D" uid="uid://dxuia0p3svfly" path="res://Assets/Untitled 10.png" id="6_0syao"]
 [ext_resource type="PackedScene" uid="uid://k4cev62oe85r" path="res://item.tscn" id="6_x1x7r"]
@@ -13,9 +15,51 @@
 [ext_resource type="Texture2D" uid="uid://bntyosts55lrc" path="res://Assets/Untitled 13.png" id="8_oib8b"]
 [ext_resource type="Texture2D" uid="uid://cr6adtfc1fgn7" path="res://Assets/Untitled 14.png" id="9_c5dqx"]
 [ext_resource type="FontFile" uid="uid://byp1sa2n5wlp0" path="res://Assets/monogram.ttf" id="11_rg7gv"]
+[ext_resource type="Texture2D" uid="uid://dnamflh02c3au" path="res://Untitled 25.png" id="12_8swoy"]
 [ext_resource type="Texture2D" uid="uid://cymcts2c76c7e" path="res://Assets/Untitled 7.png" id="12_jp0pq"]
 [ext_resource type="Texture2D" uid="uid://iadk35qmxj2d" path="res://Assets/Untitled 3.png" id="13_uqnds"]
-[ext_resource type="Texture2D" uid="uid://bk8u0vw5s4mf3" path="res://Assets/Untitled 8.png" id="14_bn7ue"]
+[ext_resource type="Texture2D" uid="uid://cicxmpdnsihw2" path="res://Assets/Untitled 5.png" id="14_dfihq"]
+[ext_resource type="AudioStream" uid="uid://bpjwsniv7ksa7" path="res://Assets/lemonade stand.wav" id="19_mejb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7sx0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51p7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ld6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2jn0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aekoa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_or4b2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ll8d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iytjs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1idam"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo0vg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bl5j6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpwwm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isp6u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ga0ri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3bmhh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xlqy2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bdliy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqlrj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1h70w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xelwp"]
 
 [node name="Main" type="Node2D" groups=["customers", "lemons"]]
 script = ExtResource("1_yitt0")
@@ -23,87 +67,139 @@ script = ExtResource("1_yitt0")
 [node name="StartScreen" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="StartScreen"]
-offset_left = 202.0
+[node name="TextureRect" type="TextureRect" parent="StartScreen"]
+offset_left = 203.0
 offset_top = 38.0
-offset_right = 888.0
-offset_bottom = 623.0
-color = Color(1, 1, 0.682353, 1)
+offset_right = 892.0
+offset_bottom = 625.0
+texture = ExtResource("2_xhg71")
 
 [node name="StartGame" type="Button" parent="StartScreen"]
-offset_left = 443.0
-offset_top = 487.0
-offset_right = 595.0
-offset_bottom = 564.0
+offset_left = 461.0
+offset_top = 479.0
+offset_right = 622.0
+offset_bottom = 566.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y7sx0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_51p7u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5ld6l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_m2jn0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aekoa")
 text = "Click here to start"
+icon = ExtResource("3_pd8wq")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Borrow50" type="Button" parent="StartScreen"]
-offset_left = 271.0
-offset_top = 353.0
-offset_right = 387.0
-offset_bottom = 441.0
+offset_left = 318.0
+offset_top = 369.0
+offset_right = 433.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_or4b2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ll8d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iytjs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1idam")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yo0vg")
 text = "$50"
+icon = ExtResource("3_pd8wq")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Borrow75" type="Button" parent="StartScreen"]
-offset_left = 456.0
-offset_top = 358.0
-offset_right = 576.0
-offset_bottom = 441.0
+offset_left = 482.0
+offset_top = 359.0
+offset_right = 602.0
+offset_bottom = 442.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bl5j6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kpwwm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_isp6u")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ga0ri")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3bmhh")
 text = "$75"
+icon = ExtResource("3_pd8wq")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Borrow100" type="Button" parent="StartScreen"]
-offset_left = 639.0
-offset_top = 358.0
-offset_right = 752.0
-offset_bottom = 441.0
+offset_left = 665.0
+offset_top = 359.0
+offset_right = 778.0
+offset_bottom = 442.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xlqy2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bdliy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dqlrj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1h70w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xelwp")
 text = "$100"
+icon = ExtResource("3_pd8wq")
+icon_alignment = 1
+expand_icon = true
 
 [node name="TutorialText" type="Label" parent="StartScreen"]
-offset_left = 211.0
-offset_top = 43.0
-offset_right = 873.0
-offset_bottom = 170.0
+offset_left = 256.0
+offset_top = 74.0
+offset_right = 918.0
+offset_bottom = 227.0
+scale = Vector2(0.889735, 1.04689)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
 text = "Hugh Ruffman, the local tough guy, has
-been kind enough to loan you money for your lemonade business.
+been kind enough to loan you money for your lemonade 
+business.
 The terms are as follows:
 - The loan must be paid in full within 7 days
-- The loan will accrue 5% interest on a daily basis. This will be added to your total debt
-- If the loan is not paid back in time, Hugh will take posession of your business"
+- If the loan is not paid back in time, 
+Hugh will take posession of your business"
+
+[node name="TutorialText2" type="Label" parent="StartScreen"]
+offset_left = 402.0
+offset_top = 314.0
+offset_right = 1064.0
+offset_bottom = 467.0
+scale = Vector2(0.889735, 1.04689)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 32
+text = "How much will you borrow?"
 
 [node name="Shop" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 10
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Shop"]
-offset_left = 177.0
-offset_top = 101.0
-offset_right = 924.0
-offset_bottom = 562.0
-color = Color(0.705882, 0.156863, 0.0941176, 1)
+[node name="TextureRect" type="TextureRect" parent="Shop"]
+self_modulate = Color(0.203922, 0.992157, 0.862745, 1)
+offset_left = 206.0
+offset_top = 37.0
+offset_right = 916.0
+offset_bottom = 621.0
+texture = ExtResource("2_xhg71")
 
 [node name="Lemons" parent="Shop" instance=ExtResource("6_x1x7r")]
 position = Vector2(274, 171)
 texture = ExtResource("6_0syao")
 quantity_1 = 1
-price_1 = 1
+price_1 = 0.3
 quantity_2 = 5
-price_2 = 5
+price_2 = 1.5
 quantity_3 = 10
-price_3 = 10
+price_3 = 3.0
 inventory_item_texture = ExtResource("6_0syao")
 item_type = "lemons"
 
 [node name="Cups" parent="Shop" instance=ExtResource("6_x1x7r")]
 position = Vector2(273, 214)
 texture = ExtResource("6_y5hbf")
-quantity_1 = 1
-price_1 = 1
-quantity_2 = 5
-price_2 = 5
-quantity_3 = 10
-price_3 = 10
+quantity_1 = 10
+price_1 = 1.5
+quantity_2 = 25
+price_2 = 3.75
+quantity_3 = 50
+price_3 = 7.5
 inventory_item_texture = ExtResource("6_y5hbf")
 item_type = "cups"
 
@@ -111,11 +207,11 @@ item_type = "cups"
 position = Vector2(275, 258)
 texture = ExtResource("8_oib8b")
 quantity_1 = 1
-price_1 = 1
-quantity_2 = 5
-price_2 = 5
-quantity_3 = 10
-price_3 = 10
+price_1 = 0.02
+quantity_2 = 20
+price_2 = 0.4
+quantity_3 = 100
+price_3 = 2.0
 inventory_item_texture = ExtResource("8_oib8b")
 item_type = "ice"
 
@@ -123,34 +219,53 @@ item_type = "ice"
 position = Vector2(275, 302)
 texture = ExtResource("9_c5dqx")
 quantity_1 = 1
-price_1 = 1
-quantity_2 = 5
-price_2 = 5
-quantity_3 = 10
-price_3 = 10
+price_1 = 0.05
+quantity_2 = 10
+price_2 = 0.5
+quantity_3 = 50
+price_3 = 2.5
 inventory_item_texture = ExtResource("9_c5dqx")
 item_type = "sugar"
 
 [node name="Start_Round" type="Button" parent="Shop"]
-offset_left = 478.0
-offset_top = 506.0
-offset_right = 579.0
-offset_bottom = 537.0
+offset_left = 486.0
+offset_top = 541.0
+offset_right = 633.0
+offset_bottom = 592.0
 text = "Start Round"
 
 [node name="InventoryTag" type="Label" parent="Shop"]
-offset_left = 703.0
-offset_top = 139.0
-offset_right = 778.0
-offset_bottom = 162.0
+offset_left = 476.0
+offset_top = 113.0
+offset_right = 551.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Inventory"
 
+[node name="Booth" type="Label" parent="Shop"]
+offset_left = 309.0
+offset_top = 372.0
+offset_right = 420.0
+offset_bottom = 395.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Select a Booth"
+
+[node name="PurchaseSupplies" type="Label" parent="Shop"]
+offset_left = 271.0
+offset_top = 117.0
+offset_right = 412.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Purchase Supplies"
+
 [node name="Recipie" type="Label" parent="Shop"]
-offset_left = 617.0
-offset_top = 401.0
-offset_right = 904.0
-offset_bottom = 424.0
-text = "1 cup = 1 Lemon, 1 Cup, 1 Ice, 1 Sugar"
+offset_left = 590.0
+offset_top = 112.0
+offset_right = 877.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "                    Recipie:
+1 cup = 1 Lemon, 1 Cup, 3 Ice, 2 Sugar"
 
 [node name="ShopsHBox" type="HBoxContainer" parent="Shop"]
 offset_left = 243.0
@@ -168,25 +283,101 @@ icon = ExtResource("13_uqnds")
 
 [node name="TableTier3" type="Button" parent="Shop/ShopsHBox"]
 layout_mode = 2
-icon = ExtResource("14_bn7ue")
+icon = ExtResource("12_8swoy")
 
 [node name="MakeLemonadeHBox" type="HBoxContainer" parent="Shop"]
-offset_left = 702.0
-offset_top = 440.0
-offset_right = 766.0
-offset_bottom = 495.0
+offset_left = 678.0
+offset_top = 174.0
+offset_right = 740.0
+offset_bottom = 229.0
 
 [node name="MakeLemonade" parent="Shop/MakeLemonadeHBox" instance=ExtResource("8_dqkwq")]
 layout_mode = 2
+size_flags_horizontal = 0
 amount_to_make = 1
+button_type = "lemonade"
 
 [node name="MakeLemonade3" parent="Shop/MakeLemonadeHBox" instance=ExtResource("8_dqkwq")]
 layout_mode = 2
 amount_to_make = 5
+button_type = "lemonade"
 
 [node name="MakeLemonade2" parent="Shop/MakeLemonadeHBox" instance=ExtResource("8_dqkwq")]
 layout_mode = 2
 amount_to_make = 10
+button_type = "lemonade"
+
+[node name="MakeLemonadeHBox2" type="HBoxContainer" parent="Shop"]
+offset_left = 693.0
+offset_top = 426.0
+offset_right = 755.0
+offset_bottom = 481.0
+
+[node name="MakeLemonade" parent="Shop/MakeLemonadeHBox2" instance=ExtResource("8_dqkwq")]
+layout_mode = 2
+size_flags_horizontal = 0
+amount_to_make = 1
+button_type = "debt"
+
+[node name="MakeLemonade3" parent="Shop/MakeLemonadeHBox2" instance=ExtResource("8_dqkwq")]
+layout_mode = 2
+amount_to_make = 5
+button_type = "debt"
+
+[node name="MakeLemonade2" parent="Shop/MakeLemonadeHBox2" instance=ExtResource("8_dqkwq")]
+layout_mode = 2
+amount_to_make = 10
+button_type = "debt"
+
+[node name="DebtLeft" type="Label" parent="Shop"]
+offset_left = 667.0
+offset_top = 367.0
+offset_right = 782.0
+offset_bottom = 390.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Total Debt Left"
+
+[node name="DebtLeftValue" type="Label" parent="Shop"]
+offset_left = 703.0
+offset_top = 397.0
+offset_right = 818.0
+offset_bottom = 420.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$100"
+
+[node name="DebtTutorial" type="Label" parent="Shop"]
+offset_left = 651.0
+offset_top = 493.0
+offset_right = 829.0
+offset_bottom = 542.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Click a button to pay
+off corresponding debt"
+
+[node name="DebtTutorial3" type="Label" parent="Shop"]
+offset_left = 600.0
+offset_top = 248.0
+offset_right = 868.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Make your cups of lemonade here!"
+
+[node name="DebtTutorial2" type="Label" parent="Shop"]
+offset_left = 267.0
+offset_top = 501.0
+offset_right = 445.0
+offset_bottom = 550.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Better booths increase
+customer purchase rate"
+
+[node name="BoothPrice" type="Label" parent="Shop"]
+offset_left = 482.0
+offset_top = 434.0
+offset_right = 522.0
+offset_bottom = 457.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$20"
 
 [node name="IncomeStatement" type="CanvasLayer" parent="."]
 visible = false
@@ -194,8 +385,8 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="IncomeStatement"]
 offset_left = 354.0
 offset_top = 37.0
-offset_right = 797.0
-offset_bottom = 522.0
+offset_right = 798.0
+offset_bottom = 281.0
 color = Color(0.670588, 0.52549, 0.419608, 1)
 
 [node name="IncomeStatement" type="Label" parent="IncomeStatement/ColorRect"]
@@ -221,57 +412,6 @@ theme_override_fonts/font = ExtResource("11_rg7gv")
 theme_override_font_sizes/font_size = 32
 text = "Revenue:"
 
-[node name="Cogs" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-text = "Cost of Goods Sold:"
-
-[node name="GrossProfit" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-text = "Gross Profit:"
-
-[node name="Spacer" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-
-[node name="Expenses" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-text = "   ~~ Expenses ~~"
-
-[node name="Supplies" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-text = "Supplies:"
-
-[node name="Minimumpayment" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-text = "Minimum Payment:"
-
-[node name="Spacer2" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-
-[node name="NetIncome" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-text = "Net Income:"
-
-[node name="Spacer3" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_rg7gv")
-theme_override_font_sizes/font_size = 32
-
 [node name="OustandingDebt" type="Label" parent="IncomeStatement/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("11_rg7gv")
@@ -280,11 +420,29 @@ text = "Oustanding Debt:"
 
 [node name="Button" type="Button" parent="IncomeStatement/ColorRect"]
 layout_mode = 0
-offset_left = 122.0
-offset_top = 426.0
-offset_right = 264.0
-offset_bottom = 457.0
+offset_left = 128.0
+offset_top = 179.0
+offset_right = 270.0
+offset_bottom = 210.0
 text = "Start Next Round"
+
+[node name="EndGame" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="EndGame"]
+offset_right = 1160.0
+offset_bottom = 664.0
+texture = ExtResource("14_dfihq")
+
+[node name="Label" type="Label" parent="EndGame"]
+offset_left = 425.0
+offset_top = 133.0
+offset_right = 809.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(0.890196, 0.984314, 0, 1)
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 128
+text = "You Win!"
 
 [node name="Global_Controller" type="Node" parent="."]
 process_mode = 3
@@ -295,10 +453,10 @@ position = Vector2(567, 261)
 scale = Vector2(3, 3)
 
 [node name="Spawner" parent="." instance=ExtResource("4_ix7xf")]
-position = Vector2(1003, 372)
+position = Vector2(1004, 327)
 
 [node name="Spawner2" parent="." instance=ExtResource("4_ix7xf")]
-position = Vector2(54, 378)
+position = Vector2(55, 333)
 move_right = true
 
 [node name="ExitArea" parent="." instance=ExtResource("7_u6c5t")]
@@ -337,16 +495,42 @@ text = "Dollars"
 
 [node name="RoundTimer" type="Timer" parent="."]
 process_mode = 3
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
+
+[node name="DaysPlayed" type="Label" parent="."]
+offset_left = 1014.0
+offset_top = 12.0
+offset_right = 1122.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("11_rg7gv")
+theme_override_font_sizes/font_size = 48
+text = "Day: 1"
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1163.0
+offset_bottom = 663.0
+color = Color(0, 0.607843, 0.47451, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_mejb1")
+volume_db = 4.0
+autoplay = true
 
 [connection signal="pressed" from="StartScreen/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow50" to="." method="_on_borrow_50_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow75" to="." method="_on_borrow_75_pressed"]
 [connection signal="pressed" from="StartScreen/Borrow100" to="." method="_on_borrow_100_pressed"]
 [connection signal="pressed" from="Shop/Start_Round" to="." method="_on_start_round_pressed"]
+[connection signal="mouse_entered" from="Shop/ShopsHBox/TableTier1" to="." method="_on_table_tier_1_mouse_entered"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier1" to="." method="_on_table_tier_1_pressed"]
+[connection signal="mouse_entered" from="Shop/ShopsHBox/TableTier2" to="." method="_on_table_tier_2_mouse_entered"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier2" to="." method="_on_table_tier_2_pressed"]
+[connection signal="mouse_entered" from="Shop/ShopsHBox/TableTier3" to="." method="_on_table_tier_3_mouse_entered"]
 [connection signal="pressed" from="Shop/ShopsHBox/TableTier3" to="." method="_on_table_tier_3_pressed"]
+[connection signal="end_game" from="Shop/MakeLemonadeHBox2/MakeLemonade" to="." method="_on_make_lemonade_end_game"]
+[connection signal="end_game" from="Shop/MakeLemonadeHBox2/MakeLemonade3" to="." method="_on_make_lemonade_3_end_game"]
+[connection signal="end_game" from="Shop/MakeLemonadeHBox2/MakeLemonade2" to="." method="_on_make_lemonade_2_end_game"]
 [connection signal="pressed" from="IncomeStatement/ColorRect/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

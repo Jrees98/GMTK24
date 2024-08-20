@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/lemonade_stand.gd" id="1_fjbmc"]
 [ext_resource type="Texture2D" uid="uid://cymcts2c76c7e" path="res://Assets/Untitled 7.png" id="2_6wngi"]
-[ext_resource type="Texture2D" uid="uid://bk8u0vw5s4mf3" path="res://Assets/Untitled 8.png" id="2_pkx0e"]
 [ext_resource type="Texture2D" uid="uid://iadk35qmxj2d" path="res://Assets/Untitled 3.png" id="3_6ecin"]
+[ext_resource type="Texture2D" uid="uid://dnamflh02c3au" path="res://Untitled 25.png" id="4_oems7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l4bb"]
 size = Vector2(45, 52)
@@ -18,7 +18,7 @@ animations = [{
 "texture": ExtResource("3_6ecin")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_pkx0e")
+"texture": ExtResource("4_oems7")
 }],
 "loop": true,
 "name": &"default",
